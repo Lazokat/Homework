@@ -1,0 +1,27 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+<h3>{{ title }}</h3>
+<div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input
+                value="Save"
+                type="submit">
+            <input
+                value="Cancel"
+                type="button"
+                onclick="location.href='{% url 'index'%}';">
+            <input
+                value="Delete this list"
+                type="button"
+                onclick="location.href=
+                '{% url 'list-delete' todo_list.id %}'" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}

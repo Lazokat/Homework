@@ -1,0 +1,28 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+<h3>Delete To-do Item</h3>
+
+<p>Do you really want to delete : <b>{{ object.title }}</b>
+   from the list <i>{{ todo_list.title }}</i>?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <input
+        value="Yes."
+        type="submit">
+    <input
+        value="Cancel"
+        type="button"
+        onclick="location.href='{% url 'list' todo_list.id %}';">
+    {% if object %}
+        <input
+            value="Delete this item"
+            type="button"
+            onclick="location.href=
+            '{% url 'item-delete' todo_list.id object.id %}'">
+    {% endif %}
+</form>
+
+{% endblock %}
