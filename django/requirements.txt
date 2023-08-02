@@ -10,3 +10,4 @@ typing_extensions==4.7.1
 whitenoise==6.5.0
 python-dotenv==0.21.0
 environ
+django-environ
