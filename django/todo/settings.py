@@ -89,14 +89,15 @@ DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
         default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-        DATABASE_ENGINE='django.db.backends.postgresql'
-        DATABASE_USER='postgres'
-        DATABASE_PASSWORD=3112
-        DATABASE_NAME='django_tables'
-        DATABASE_HOST='db'
-        DATABASE_PORT=5432
-    )
+        conn_max_age=600)
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_tables',                      
+        'USER': 'postgres',
+        'PASSWORD': '3112',
+        'HOST': 'localhost',
+        'PORT': '5432'
+        
+    
 }
 
 
