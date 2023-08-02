@@ -92,7 +92,12 @@ DATABASES = {
         conn_max_age=600
     )
 }
-
+DATABASE_ENGINE=django.db.backends.postgresql
+DATABASE_USER=postgres
+DATABASE_PASSWORD=1234
+DATABASE_NAME=pos
+DATABASE_HOST=db
+DATABASE_PORT=5432
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
