@@ -30,9 +30,10 @@ environ.Env().read_env()
 # SECURITY WARNING: keep the secret key used in production secret!
 import os
 SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-dw=j-td$%jr1l-##8ky+m#hr#j6a2s=34@00(r#h7t5&)7_sgj')
+DEBUG=False
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+
 
 ALLOWED_HOSTS = []
 
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default':dj_database_url.parse()
+    'default':dj_database_url.parse(env('DATABASE_URL')
 }
 
 # Password validation
