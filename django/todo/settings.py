@@ -84,22 +84,19 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://todo_mog4_user:vDF3Zm9JhS1kjVFyvBnWc2DMBwcjKG31@dpg-cj4s5khitvpc73eqgnpg-a.oregon-postgres.render.com/todo_mog4',
-        conn_max_age=600)
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_tables',                      
-        'USER': 'postgres',
-        'PASSWORD': '3112',
-        'HOST': 'localhost',
-        'PORT': '5432'
-        
-    
-}
+import os
 
+if not DEBUG:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }}
+
+import os
+os.environ["INTERNAL_DATABASE_URL"] = "postgres://todo_mog4_user:vDF3Zm9JhS1kjVFyvBnWc2DMBwcjKG31@dpg-cj4s5khitvpc73eqgnpg-a/todo_mog4"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
